@@ -1,0 +1,74 @@
+import "../../../libraries/types/can.did";
+
+type NotificationsArgs =
+    record {
+        from_index: nat64;
+        max_results: nat32;
+    };
+
+type NotificationsResponse =
+    variant {
+        Success: NotificationsSuccessResult;
+        NotAuthorized;
+    };
+
+type NotificationsSuccessResult =
+    record {
+        notifications: vec Notification;
+    };
+
+type RemoveNotificationsArgs =
+    record {
+        up_to_index: nat64;
+    };
+
+type RemoveNotificationsResponse =
+    variant {
+        Success;
+        NotAuthorized;
+    };
+
+type SubscribeArgs =
+    record {
+        account_identifiers: vec AccountIdentifier;
+        targets: vec NotificationTarget;
+    };
+
+type SubscribeResponse =
+    variant {
+        Success;
+    };
+
+type SubscriptionsArgs =
+    record {
+    };
+
+type SubscriptionsResponse =
+    variant {
+        Success: SubscriptionsSuccessResult;
+    };
+
+type SubscriptionsSuccessResult =
+    record {
+        subscriptions: vec Subscription;
+    };
+
+type UnsubscribeArgs =
+    record {
+        account_identifier: AccountIdentifier;
+        targets: vec NotificationTarget;
+    };
+
+type UnsubscribeResponse =
+    variant {
+        Success;
+    };
+
+service: {
+    subscribe: (SubscribeArgs) -> (SubscribeResponse);
+    unsubscribe: (UnsubscribeArgs) -> (UnsubscribeResponse);
+    subscriptions: (SubscriptionsArgs) -> (SubscriptionsResponse) query;
+
+    notifications: (NotificationsArgs) -> (NotificationsResponse) query;
+    remove_notifications: (RemoveNotificationsArgs) -> (RemoveNotificationsResponse);
+}

@@ -1,0 +1,48 @@
+{
+  "canisters": {
+    "notifications": {
+      "candid": "backend/canisters/notifications/api/can.did",
+      "package": "notifications_canister_api",
+      "type": "rust"
+    },
+    "users": {
+      "candid": "backend/canisters/users/can.did",
+      "package": "users",
+      "type": "rust"
+    },
+    "proposals": {
+      "candid": "backend/canisters/proposals/can.did",
+      "package": "proposals",
+      "type": "rust"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    },
+    "app": {
+      "dependencies": [
+        "notifications"
+      ],
+      "frontend": {
+        "entrypoint": "out/index.html"
+      },
+      "source": ["out"],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

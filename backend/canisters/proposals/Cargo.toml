@@ -1,0 +1,15 @@
+[package]
+name = "proposals"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+candid = "0.10"
+ic-cdk = "0.13"
+ic-cdk-timers = "0.7"
+ic-cdk-macros = "0.15.0"
+ic-stable-structures = "0.5.5"
+serde = "1.0.204"

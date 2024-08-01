@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "backend/canisters/notifications/api",
+    "backend/canisters/notifications/impl",
+    "backend/canisters/proposals",
+    "backend/canisters/users",
+    "backend/libraries/types",
+]
+resolver = "2"
